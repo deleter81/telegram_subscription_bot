@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Enum
 from bot.database.db import Base
 import enum
 
-# ✅ Enum для статуса подписки
+# Enum для статуса подписки
 class SubscriptionStatus(enum.Enum):
     ACTIVE = 'active'
     INACTIVE = 'inactive'
@@ -14,7 +14,7 @@ class Subscription(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, unique=True, index=True, nullable=False)
 
-    # ✅ Ограничения на длину строки + Enum для строгих значений
+    # Ограничения на длину строки + Enum для строгих значений
     status = Column(Enum(SubscriptionStatus), default=SubscriptionStatus.INACTIVE)
 
     def activate(self):
