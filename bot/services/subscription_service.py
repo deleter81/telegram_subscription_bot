@@ -4,7 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from bot.models.subscription import Subscription
 from bot.utils.logger import logger
 
-# ✅ Получаем подписку пользователя
+# Получаем подписку пользователя
 async def get_subscription(db: AsyncSession, user_id: int):
     logger.info(f"🔎 Получаем подписку для пользователя {user_id}")
     try:
@@ -21,7 +21,7 @@ async def get_subscription(db: AsyncSession, user_id: int):
         logger.error(f"❌ Ошибка при получении подписки для пользователя {user_id}: {e}")
         return None
 
-# ✅ Создаём новую подписку
+# Создаём новую подписку
 async def create_subscription(db: AsyncSession, user_id: int):
     logger.info(f"➕ Создаём подписку для пользователя {user_id}")
     try:
